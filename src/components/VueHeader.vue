@@ -10,6 +10,9 @@
           <a href="#">Find butik</a>
           <a href="#">Kontakt</a>
         </nav>
+        <button @click="burgerToggle" class="nav-btn" aria-label="menu">
+          <span class="material-icons">menu</span>
+        </button>
       </div>
     </div>
   </header>
@@ -17,7 +20,17 @@
 
 <script>
 export default {
-  name: "Header",
+  name: "VueHeader",
+  methods: {
+    burgerToggle() {
+      const nav = document.querySelector("nav");
+      if (nav.style.display === "flex") {
+        nav.style.display = "none";
+      } else {
+        nav.style.display = "flex";
+      }
+    },
+  },
 };
 </script>
 
@@ -68,6 +81,42 @@ nav {
     &.active {
       text-decoration: underline;
     }
+  }
+}
+
+.nav-btn {
+  display: none;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+}
+
+@media screen and (max-width: 800px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    color: inherit;
+    right: 0;
+    top: 6.5rem;
+    width: 30%;
+    padding: 1rem;
+    background: linear-gradient(0deg, #118b24 0%, #149d2a 100%);
+  }
+  .nav-btn {
+    display: block;
+    cursor: pointer;
+    pointer-events: all;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  address {
+    font-size: xx-small;
+  }
+  
+  nav {
+    width: 100%;
   }
 }
 </style>

@@ -1,21 +1,21 @@
 <template>
-  <Header></Header>
+  <VueHeader></VueHeader>
   <header class="title">
     <h1>Besøgsoplevelse</h1>
     <p>Hvordan var din kundeoplevelse i butikken i dag?</p>
   </header>
-  <Main></Main>
+  <VueMain></VueMain>
 </template>
 
 <script>
-import Header from "./components/Header.vue";
-import Main from "./components/Main.vue";
+import VueHeader from "./components/VueHeader.vue";
+import VueMain from "./components/VueMain.vue";
 
 export default {
   name: "App",
   components: {
-    Header,
-    Main,
+    VueHeader,
+    VueMain,
   },
 };
 </script>
@@ -29,6 +29,7 @@ body {
   font-weight: 600;
   font-size: 16px;
   line-height: 20px;
+  padding-bottom: 1rem;
 }
 
 .wrapper {
@@ -42,7 +43,7 @@ body {
 
   h1 {
     color: #149d2a;
-    font-size: 56px;
+    font-size: clamp(3rem, 2.5vw, 6rem);
     font-style: normal;
     font-weight: bold;
     line-height: 70px;
